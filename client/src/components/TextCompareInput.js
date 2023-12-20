@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import './_textEditor.scss'
+
 
 function TextCompareInput() {
   const [value, setValue] = useState('');
+  const [error, setError] = useState()
 
   return (
     <div
@@ -14,13 +17,7 @@ function TextCompareInput() {
             placeholder='Enter text in here...'
             value={value} 
             onChange={setValue}
-            // style={{
-            //     '.qlContainer.qlSnow': {
-            //         border: 'none',
-            //         boxsizing: 'border-box',
-            //         padding: '8px'
-            //     },           
-            //   }}
+            className={"ql-error"} // Add a dynamic class 
         />
     </div>
   )
