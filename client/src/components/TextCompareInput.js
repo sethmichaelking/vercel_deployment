@@ -6,7 +6,7 @@ import './_textEditor.scss'
 
 function TextCompareInput() {
   const [value, setValue] = useState('');
-  const [error, setError] = useState()
+//   const [error, setError] = useState()
 
   return (
     <div
