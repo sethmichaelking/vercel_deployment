@@ -5,7 +5,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './_textEditor.scss'
 import { useTextCompareStore } from '../store/textCompare';
-
+import RenderDiff from './RenderDiff';
 function Main() {
 
 
@@ -33,6 +33,7 @@ function Main() {
                             marginTop: 0
                         }}> Text Compare</h2>
                     </div>
+                    <RenderDiff/>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                         <div
                             className="border-2 border-solid rounded-lg border-gray-300 dark:border-gray-600 h-96"
