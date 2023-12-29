@@ -20,7 +20,7 @@ function Main() {
 
   return (
     <div>
-        <div class="@container overflow-scroll">
+        <div className="@container overflow-scroll">
             <main className="p-4 md:ml-64 h-screen pt-20" style={{
                 paddingRight: '3rem'
 

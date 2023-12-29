@@ -1,73 +1,130 @@
 
 import React, { useEffect } from 'react'
 import { TextCompareStore } from '../store/textCompare';
-var CodeMirror = require('react-codemirror');
 
 
 function RenderDiff() {
+     const text = TextCompareStore((state) => state.comparisonResult)
+     const text2 = TextCompareStore((state) => state.comparisonResult2)
+     
+     const displayText2 = (text2) => {
+        let arrOfText = text2.data
 
- //get information from the store
- //combine the text into removed/added and color the text 
-  const text = TextCompareStore((state) => state.comparisonResult)
-  console.log('the text', text)
+        const arr = [
+            <div>
+
+            </div>
+        ];
+        for (let i = 0; i < arrOfText.length; i++){
+            let text = arrOfText[i]
+            let textColor = 'text-stone-300	'
+                let strikeThrough = ''
+                if (text.removed) {
+                    textColor = 'text-pink-600	'
+                    strikeThrough = 'line-through'
+                } 
+                if (text.added){
+                    textColor = 'text-cyan-400	'
+                }
+                let completeClass = textColor + strikeThrough
+                arr.push(
+                        <span key={i} className={completeClass}> 
+                            {text.value} 
+                        </span>
+                    )
+                }
+                return arr
+            }
+
+     const displayText = (text) => {
+            const arr = [
+
+            ];
+            text.map((text, i) => {
+                let textColor = 'text-stone-300	'
+                let strikeThrough = ''
+                if (text.removed) {
+                    textColor = 'text-pink-600	'
+                    strikeThrough = 'line-through'
+                } 
+                if (text.added){
+                    textColor = 'text-cyan-400	'
+                }
+                let completeClass = textColor + strikeThrough
+                arr.push(
+                        <span key={i} className={completeClass}> 
+                            {text.value} 
+                        </span>
+                    )
+                }
+            )
+            return (
+                <div>
+                    {arr}
+                </div>
+            );  
+     }
+     console.log('txt2', text2)
  return (
     <div>
         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
                                 <div className='text-start' style={{
-                                    wordWrap: 'break-word'
+                                    wordWrap: 'break-word',
+                                    whiteSpace: 'pre-line'
                                 }}>
-                                    fefefef
-                                {/* {text.map((text) => {
-                                    let textColor = 'text-stone-300	'
-                                    let strikeThrough = ''
-                                    if (text.removed) {
-                                        textColor = 'text-pink-600	'
-                                        strikeThrough = 'line-through'
-                                    } 
-                                    if (text.added){
-                                        textColor = 'text-cyan-400	'
-                                    }
-                                    let completeClass = textColor + strikeThrough
-                                    return (
-                                        // <textarea cols="50" rows="10" class="numbered">
-                                            <text className={completeClass}> 
-                                                {text.value} 
-                                            </text>
-                                        // </textarea>
-                                        )
-                                    }
-                                )} */}
+                                    
+                                    {
+                                            text2.data.map((text, i) => {
+                                                let textColor = 'text-stone-300	'
+                                                let strikeThrough = ''
+                                                if (text.removed) {
+                                                    textColor = 'text-pink-600	'
+                                                    strikeThrough = 'line-through'
+                                                } 
+                                                if (text.added){
+                                                    textColor = 'text-cyan-400	'
+                                                }
+                                                let completeClass = textColor + strikeThrough
+                                                return (
+                                                        <span key={i} className={completeClass} style={{whiteSpace: "pre-line"}}> 
+                                                            {text.value} 
+                                                        </span>
+                                                    )
+                                                }
+                                            ) 
+                                        }
                                 </div>
                             </div>
                             <div>
-                                <div className='text-start' style={{
-                                    wordWrap: 'break-word'
+                                <div id='changed' className='text-start' style={{
+                                    wordWrap: 'break-word',
+                                    whiteSpace: 'pre-line'
                                 }}>
-                                {text.map((text) => {
-                                    let textColor = 'text-stone-300	'
-                                    let strikeThrough = ''
-                                    if (text.removed) {
-                                        textColor = 'text-pink-600	'
-                                        strikeThrough = 'line-through'
-                                    } 
-                                    if (text.added){
-                                        textColor = 'text-cyan-400	'
-                                    }
-                                    let completeClass = textColor + strikeThrough
-                                    return (
-                                        // <textarea cols="50" rows="10" class="numbered">
-                                            <text className={completeClass}> 
-                                                {text.value} 
-                                            </text>
-                                        // </textarea>
-                                        )
-                                    }
-                                )}
+                                        {
+                                            text.map((text, i) => {
+                                                let textColor = 'text-stone-300	'
+                                                let strikeThrough = ''
+                                                if (text.removed) {
+                                                    textColor = 'text-pink-600	'
+                                                    strikeThrough = 'line-through'
+                                                } 
+                                                if (text.added){
+                                                    textColor = 'text-cyan-400	'
+                                                }
+                                                let completeClass = textColor + strikeThrough
+                                                return (
+                                                        <span key={i} className={completeClass} style={{whiteSpace: "pre-line"}}> 
+                                                            {text.value} 
+                                                        </span>
+                                                    )
+                                                }
+                                            ) 
+                                        }
                                 </div>
                             </div>
                         </div>
-    </div>
+        </div>
   )
 }
 

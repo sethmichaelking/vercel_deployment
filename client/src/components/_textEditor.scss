@@ -17,6 +17,18 @@ p {
     white-space: pre-wrap;
 } 
 
+.lineNum {
+  counter-reset: line;
+}
+
+.lineNum:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    margin-right: .5em;
+}
+
+
 textarea {
     background: url(http://i.imgur.com/2cOaJ.png);
     background-attachment: local;
@@ -24,7 +36,6 @@ textarea {
     padding-left: 35px;
     padding-top: 10px;
     border-color: #ccc;
-  
     font-size: 13px;
     line-height: 16px;
     width: 100vw;
