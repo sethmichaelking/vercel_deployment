@@ -7,7 +7,6 @@ import './_textEditor.scss'
 function TextCompareInput() {
   const [value, setValue] = useState('');
 //   const [error, setError] = useState()
-
   return (
     <div
         className="border-2 border-solid rounded-lg border-gray-300 dark:border-gray-600 h-96"
@@ -19,6 +18,7 @@ function TextCompareInput() {
             onChange={setValue}
             className={"ql-error"} // Add a dynamic class 
         />
+        
     </div>
   )
 }

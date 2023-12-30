@@ -49,6 +49,15 @@ function Main() {
                                 </div>
                                 <div
                                     className="border-2 border-solid rounded-lg border-gray-300 dark:border-gray-600 h-96"
+                                    style={{
+                                        background: '#303030',
+                                        color: '#f1f1f1',
+                                        padding: '10px 16px',
+                                        borderRadius: '2px',
+                                        borderTop: '4px solid #00aeef',
+                                        boxShadow: 'inset 0 0 10px #000',
+                                        counterReset: 'line'
+                                    }}
                                 >
                                     <ReactQuill
                                         theme="snow"
@@ -65,6 +74,15 @@ function Main() {
                                 </div>
                                 <div
                                     className="border-2 border-solid rounded-lg border-gray-300 dark:border-gray-600 h-96"
+                                    style={{
+                                        background: '#303030',
+                                        color: '#f1f1f1',
+                                        padding: '10px 16px',
+                                        borderRadius: '2px',
+                                        borderTop: '4px solid #00aeef',
+                                        boxShadow: 'inset 0 0 10px #000',
+                                        counterReset: 'line'
+                                    }}
                                 >
                                     <ReactQuill
                                         theme="snow"
