@@ -3,10 +3,10 @@ const express = require('express')
 const app = express()
 const bodyParser  = require('body-parser');
 const cors = require('cors');
-const colorDiffs = require("./helpers/helpers")
+const colorDiffs = require("../helpers/helpers")
 
 const corsOptions ={
-    origin:'http://localhost:3000', 
+    origin:'*', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
