@@ -19,6 +19,7 @@ app.post('/compareText', async (req, res) => {
     var firstText = req.body.firstText
     var secondText = req.body.secondText
     const regex = /(<([^>]+)>)/gi;
+    console.log('the first text', firstText, '\n', 'the second text', secondText)
     var text1 = firstText.replace(regex, "").split(' ')
     var text2 = secondText.replace(regex, "").split(' ')  
     var diff = colorDiffs(text1, text2)
