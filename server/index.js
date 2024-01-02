@@ -27,6 +27,10 @@ app.post('/compareText', async (req, res) => {
     res.send(diff)
 })
 
+app.post('/sendText/:id', async(req, res) => {
+    console.log('the idea', req.params.id)
+    res.send('seeend')
+})
 app.use('/', (req, res) => {
     res.send("server is running")
 })
